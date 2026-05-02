@@ -172,6 +172,10 @@
         color: var(--color-text);
       }
 
+      .emphasized {
+        font-weight: 600;
+      }
+
       strong {
         font-weight: 600;
       }
@@ -718,8 +722,8 @@
       </section>
 
       <h3>Token Design</h3>
-      <h4>Emotion Mapping Strategy</h4>
       <p>
+        <span class="emphasized">Emotion mapping strategy.</span>
         The system's sentiment analysis module detects up to 28 distinct
         emotional categories, grouped into seven broader clusters:
       </p>
@@ -783,17 +787,17 @@
         </figcaption>
       </figure>
 
-      <h4>Material Representation</h4>
       <p>
-        The token is designed in the form and scale of a coin, directly
-        referencing the project's conceptual framing of emotion as currency.
-        This physical form reinforces the idea of emotional expression as
-        something that can be exchanged, collected, or carried. Each token is
-        fabricated from iridescent acrylic, producing shifting colors depending
-        on the viewing angle &mdash; a material quality that reflects the
-        inherent complexity and variability of emotional experience, resisting a
-        single fixed representation. Several token designs were explored before
-        arriving at the final version, as shown in Fig. 4.
+        <span class="emphasized">Material representation.</span> The token is
+        designed in the form and scale of a coin, directly referencing the
+        project's conceptual framing of emotion as currency. This physical form
+        reinforces the idea of emotional expression as something that can be
+        exchanged, collected, or carried. Each token is fabricated from
+        iridescent acrylic, producing shifting colors depending on the viewing
+        angle &mdash; a material quality that reflects the inherent complexity
+        and variability of emotional experience, resisting a single fixed
+        representation. Several token designs were explored before arriving at
+        the final version, as shown in Fig. 4.
       </p>
       <figure class="figure">
         <img
@@ -824,15 +828,25 @@
           Audio input is collected through a USB microphone and transmitted to a
           local computing unit for real-time processing. The audio signal is
           first converted into text using an offline automatic speech
-          recognition model (Vosk). This design reduces latency and ensures
-          stable performance in exhibition environments. The resulting
-          transcription is then processed by a large language model (LLM)-based
-          sentiment analysis module. It is used to infer broader affective
-          tendencies and map them into a simplified set of predefined emotional
-          categories. Based on this mapping, the system determines a
-          corresponding output channel, which triggers a mechanical dispensing
-          mechanism controlled by a microcontroller. This completes the full
-          pipeline from spoken expression to physical artifact generation.
+          recognition model (<a
+            style="text-decoration: underline; color: var(--color-accent)"
+            href="https://github.com/alphacep/vosk-api"
+            target="_blank"
+            >Vosk</a
+          >). This design reduces latency and ensures stable performance in
+          exhibition environments. The resulting transcription is then processed
+          by a large language model (LLM)-based
+          <a
+            style="text-decoration: underline; color: var(--color-accent)"
+            href="https://huggingface.co/SamLowe/roberta-base-go_emotions"
+            target="_blank"
+            >sentiment analysis module</a
+          >. It is used to infer broader affective tendencies and map them into
+          a simplified set of predefined emotional categories. Based on this
+          mapping, the system determines a corresponding output channel, which
+          triggers a mechanical dispensing mechanism controlled by a
+          microcontroller. This completes the full pipeline from spoken
+          expression to physical artifact generation.
         </p>
 
         <h3>Hardware System</h3>
