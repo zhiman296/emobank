@@ -29,7 +29,7 @@
         --font-serif: 'Cormorant Garamond', 'Georgia', serif;
         --font-sans: 'Inter', -apple-system, sans-serif;
         --font-mono: 'JetBrains Mono', monospace;
-        --max-width: 720px;
+        --max-width: 960px;
         --space-unit: 1rem;
       }
 
@@ -313,10 +313,12 @@
         padding: 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
       }
 
-      .demo-video video {
+      .demo-video iframe {
         width: 100%;
+        aspect-ratio: 16 / 9;
         display: block;
         border-radius: 4px;
+        border: none;
       }
 
       .demo-video figcaption {
@@ -343,6 +345,38 @@
         line-height: 1.65;
         color: var(--color-text);
         margin-bottom: 0;
+      }
+
+      /* ── Footer ── */
+      /* ── References ── */
+      .references-list {
+        list-style: none;
+        margin-top: calc(var(--space-unit) * 1.5);
+      }
+
+      .references-list li {
+        font-family: var(--font-sans);
+        font-size: 0.78rem;
+        font-weight: 400;
+        line-height: 1.7;
+        color: var(--color-text);
+        padding-left: 2em;
+        text-indent: -2em;
+        margin-bottom: calc(var(--space-unit) * 1);
+      }
+
+      .references-list li em {
+        font-style: italic;
+      }
+
+      .references-list a {
+        color: var(--color-accent);
+        text-decoration: none;
+        word-break: break-all;
+      }
+
+      .references-list a:hover {
+        text-decoration: underline;
       }
 
       /* ── Footer ── */
@@ -418,13 +452,10 @@
       <p class="hero-eyebrow">
         ATLS 5410 Creative Technologies &middot; Spring 2026
       </p>
-      <h1 class="hero-title">
-        EmoBank:<br /><em>A Speculative<br />Emotional Economy</em>
-      </h1>
+      <h1 class="hero-title">EmoBank</h1>
       <p class="hero-subtitle">
-        Reimagining emotional expression as a form of value &mdash; an
-        interactive installation that translates spoken feelings into physical
-        tokens.
+        A Speculative Interactive System for Materializing Emotional Expression
+        through AI-Mediated Interaction
       </p>
       <div class="hero-meta">
         <span>Zhiman Bai</span>
@@ -435,11 +466,13 @@
     <!-- Demo Video -->
     <div class="demo-container">
       <figure class="demo-video fade-in">
-        <video controls preload="metadata">
-          <source src="public/demo.mp4" type="video/mp4" />
-        </video>
+        <iframe
+          src="https://player.vimeo.com/video/1188696250"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
         <figcaption>
-          <span class="fig-label">Demo.</span> EmoBank in use — a full
+          <span class="fig-label">Demo Video.</span> EmoBank in use — a full
           interaction cycle from speech input to token output.
         </figcaption>
       </figure>
@@ -450,10 +483,6 @@
       <!-- Project Statement -->
       <section class="section fade-in">
         <h2>Project Statement</h2>
-        <p class="lead">
-          EmoBank is a speculative interactive installation that reimagines
-          emotional expression as a form of value within an emotional economy.
-        </p>
 
         <figure class="figure">
           <img
@@ -467,6 +496,8 @@
         </figure>
 
         <p>
+          EmoBank is a speculative interactive installation that reimagines
+          emotional expression as a form of value within an emotional economy.
           In productivity-driven cultures, emotional expression is often
           constrained by norms that prioritize efficiency and social harmony,
           resulting in unequal access to safe spaces for articulating
@@ -908,6 +939,107 @@
             for the overall form of the EmoBank device.
           </figcaption>
         </figure>
+      </section>
+
+      <div class="section-divider"></div>
+      <section class="section fade-in">
+        <h2>References</h2>
+        <ul class="references-list">
+          <li>
+            Smoliak, O., Rice, C., Rudder, D., Tseliou, E., LaMarre, A.,
+            LeCouteur, A., Gaete, J., Davies, A., &amp; Henshaw, S. (2025).
+            Emotion regulation as affective neoliberal governmentality.
+            <em>Family Process</em>, <em>64</em>(1), e13064.
+            <a href="https://doi.org/10.1111/famp.13064" target="_blank"
+              >https://doi.org/10.1111/famp.13064</a
+            >
+          </li>
+          <li>
+            Puddifoot, K. (2025). Affect, attention, and injustice: The
+            injustice of Neglected Affect. <em>Philosophical Psychology</em>,
+            <em>0</em>(0), 1–32.
+            <a
+              href="https://doi.org/10.1080/09515089.2025.2588383"
+              target="_blank"
+              >https://doi.org/10.1080/09515089.2025.2588383</a
+            >
+          </li>
+          <li>
+            Pismenny, A., Eickers, G., &amp; Prinz, J. (2024). Emotional
+            Injustice. <em>Ergo an Open Access Journal of Philosophy</em>,
+            <em>11</em>(0).
+            <a href="https://doi.org/10.3998/ergo.5711" target="_blank"
+              >https://doi.org/10.3998/ergo.5711</a
+            >
+          </li>
+          <li>
+            Mondal, D. T., Kadyan, J. S., Putrevu, D. J., Subramanian, U.,
+            Upadhyaya, D. M., &amp; S, D. M. (2025).
+            <em
+              >Artificial Intelligence and Social Interactions: Understanding
+              AI's Role in Shaping Human Psychology and Social Dynamics</em
+            >
+            (SSRN Scholarly Paper No. 5333312). Social Science Research Network.
+            <a href="https://doi.org/10.2139/ssrn.5333312" target="_blank"
+              >https://doi.org/10.2139/ssrn.5333312</a
+            >
+          </li>
+          <li>
+            Li, Y., Chan, J., Peko, G., &amp; Sundaram, D. (2024). An
+            explanation framework and method for AI-based text emotion analysis
+            and visualisation. <em>Decision Support Systems</em>, <em>178</em>,
+            114121.
+            <a href="https://doi.org/10.1016/j.dss.2023.114121" target="_blank"
+              >https://doi.org/10.1016/j.dss.2023.114121</a
+            >
+          </li>
+          <li>
+            García-Hernández, R. A., Luna-García, H., Celaya-Padilla, J. M.,
+            García-Hernández, A., Reveles-Gómez, L. C., Flores-Chaires, L. A.,
+            Delgado-Contreras, J. R., Rondon, D., &amp; Villalba-Condori, K. O.
+            (2024). A Systematic Literature Review of Modalities, Trends, and
+            Limitations in Emotion Recognition, Affective Computing, and
+            Sentiment Analysis. <em>Applied Sciences</em>, <em>14</em>(16),
+            7165.
+            <a href="https://doi.org/10.3390/app14167165" target="_blank"
+              >https://doi.org/10.3390/app14167165</a
+            >
+          </li>
+          <li>
+            Neuhaus, R., Laschke, M., Ringfort-Felner, R., &amp; Hassenzahl, M.
+            (2025). Endlessly Patient, Never Judgmental, or Flexibly
+            Opinionated: Imagining a Future of Meaningful Conversations With
+            Technology.
+            <em
+              >Proceedings of the 28th International Academic Mindtrek
+              Conference, Mindtrek '25</em
+            >, 53–67.
+            <a href="https://doi.org/10.1145/3757980.3758001" target="_blank"
+              >https://doi.org/10.1145/3757980.3758001</a
+            >
+          </li>
+          <li>
+            Jiang, Z., Chen, Q., Zhang, C., Li, Y., &amp; LC, R. (2026). Hear
+            You in Silence: Designing for Active Listening in Human Interaction
+            with Conversational Agents Using Context-Aware Pacing.
+            <em
+              >Proceedings of the 2026 CHI Conference on Human Factors in
+              Computing Systems, CHI '26</em
+            >, 1–29.
+            <a href="https://doi.org/10.1145/3772318.3791238" target="_blank"
+              >https://doi.org/10.1145/3772318.3791238</a
+            >
+          </li>
+          <li>
+            Roshanaei, M., Rezapour, R., &amp; Seif El-Nasr, M. (2026). Talk,
+            Listen, Connect: How Humans and AI Evaluate Empathy in Responses to
+            Emotionally Charged Narratives. <em>AI &amp; SOCIETY</em>,
+            <em>41</em>(4), 3859–3875.
+            <a href="https://doi.org/10.1007/s00146-025-02715-x" target="_blank"
+              >https://doi.org/10.1007/s00146-025-02715-x</a
+            >
+          </li>
+        </ul>
       </section>
     </article>
 
