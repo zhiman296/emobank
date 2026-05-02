@@ -487,17 +487,6 @@
       <section class="section fade-in">
         <h2>Project Statement</h2>
 
-        <figure class="figure">
-          <img
-            src="public/fig1.png"
-            alt="The EmoBank device — a frosted acrylic enclosure on a white table with a handset and token dispenser"
-          />
-          <figcaption>
-            <span class="fig-label">Fig. 1.</span> The EmoBank interactive
-            device.
-          </figcaption>
-        </figure>
-
         <p>
           EmoBank is a speculative interactive installation that reimagines
           emotional expression as a form of value within an emotional economy.
@@ -510,6 +499,18 @@
           the act of expression itself, emphasizing the effort and vulnerability
           embedded in speaking and emotional articulation.
         </p>
+
+        <figure class="figure">
+          <img
+            src="public/fig1.png"
+            alt="The EmoBank device — a frosted acrylic enclosure on a white table with a handset and token dispenser"
+          />
+          <figcaption>
+            <span class="fig-label">Fig. 1.</span> The EmoBank interactive
+            device.
+          </figcaption>
+        </figure>
+
         <p>
           The device combines real-time speech recognition, AI-based sentiment
           analysis, and a mechanical dispensing system to translate spoken
@@ -849,35 +850,46 @@
           expression to physical artifact generation.
         </p>
 
+        <figure class="figure">
+          <img
+            src="public/fig5.jpg"
+            alt="A picture of the work-in-progress EmoBank."
+          />
+          <figcaption>
+            <span class="fig-label">Fig. 5.</span> EmoBank device - work in
+            progress.
+          </figcaption>
+        </figure>
+
         <h3>Hardware System</h3>
         <p>
           The hardware system is built around an Arduino microcontroller, which
-          coordinates sensing, processing signals, and actuation. The system
-          integrates the following components: A USB microphone serves as the
-          primary input device for capturing spoken audio. A liquid crystal
-          display (LCD) screen is positioned at eye level to provide real-time
-          system feedback. For physical output, the system employs seven servo
-          motors, each connected to a dedicated token channel, as shown in
-          Fig.5. Each servo controls a gate mechanism that releases a single
-          physical token when activated. This modular configuration allows
-          different emotion categories to correspond to separate physical output
-          streams.
+          coordinates sensing, processing signals, and actuation, as shown in
+          Fig.5. The system integrates the following components: A USB
+          microphone serves as the primary input device for capturing spoken
+          audio. A liquid crystal display (LCD) screen is positioned at eye
+          level to provide real-time system feedback. For physical output, the
+          system employs seven servo motors, each connected to a dedicated token
+          channel, as shown in Fig.6. Each servo controls a gate mechanism that
+          releases a single physical token when activated. This modular
+          configuration allows different emotion categories to correspond to
+          separate physical output streams.
         </p>
 
         <figure class="figure">
           <img
-            src="public/fig5.jpg"
+            src="public/fig6.jpg"
             alt="Seven servo-motor and 3D-printed tube assemblies forming the mechanical token dispensing channels"
           />
           <figcaption>
-            <span class="fig-label">Fig. 5.</span> Mechanical dispensing system
+            <span class="fig-label">Fig. 6.</span> Mechanical dispensing system
             using servo motors on the 3D-printed token push-out tubes.
           </figcaption>
         </figure>
 
         <p>
           To improve interaction robustness, an ultrasonic sensor is embedded
-          under the handset, as shown in Fig 6. This sensor detects proximity
+          under the handset, as shown in Fig 7. This sensor detects proximity
           and movement of the handset, allowing the system to infer when a user
           begins or ends an interaction. It ensures that speech input is only
           processed during active engagement, reducing unintended activations.
@@ -888,11 +900,11 @@
 
         <figure class="figure">
           <img
-            src="public/fig6.png"
+            src="public/fig7.png"
             alt="3D-printed housing parts for the ultrasonic sensor (left); assembled sensor module mounted on the wall (right)"
           />
           <figcaption>
-            <span class="fig-label">Fig. 6.</span> An ultrasonic sensor embedded
+            <span class="fig-label">Fig. 7.</span> An ultrasonic sensor embedded
             in a 3D-printed holder, placed beneath the handset on the device.
           </figcaption>
         </figure>
@@ -906,13 +918,13 @@
         <p>
           While EmoBank proposes a speculative framework for rethinking
           emotional expression as value, it is important to acknowledge the
-          limitations in both its conceptual and technical design. The use of
+          limitation in both its conceptual and technical design. The use of
           AI-based sentiment analysis introduces interpretive bias. Large
           language models and emotion recognition systems are trained on
           datasets that may not fully capture cultural, linguistic, or
           individual variations in emotional expression. As a result, the
-          system's interpretation of speech may not consistently align with the
-          user's intended emotional meaning.
+          system’s interpretation of speech may not consistently align with the
+          user’s intended emotional meaning.
         </p>
 
         <p>
@@ -920,23 +932,23 @@
           come to experience the device, receive tokens, and take them home
           after the event. It was exciting to observe how much people liked the
           design and the tokens (many seemed to enjoy having something tangible
-          to carry with them, as shown in Fig.7.) Several visitors also provided
+          to carry with them, as shown in Fig.8.) Several visitors also provided
           feedback on the overall design of the device. In particular, they
           expressed a desire for a more “safe” and enclosed space, as well as
           the addition of lighting on the top of the device. For future
           iterations, I plan to redesign and enlarge the side panels to create a
           more private space for users. This aligns with my initial design
-          inspiration, as shown in Fig. 8, and would help enhance both privacy
+          inspiration, as shown in Fig. 9, and would help enhance both privacy
           and the overall immersive experience.
         </p>
 
         <figure class="figure">
           <img
-            src="public/fig7.png"
+            src="public/fig8.png"
             alt="An image showing visitors interacting with the EmoBank device during an expo event at the University of Colorado Boulder."
           />
           <figcaption>
-            <span class="fig-label">Fig. 7.</span> Visitors interacting with the
+            <span class="fig-label">Fig. 8.</span> Visitors interacting with the
             EmoBank device during an expo event at the University of Colorado
             Boulder.
           </figcaption>
@@ -944,11 +956,11 @@
 
         <figure class="figure">
           <img
-            src="public/fig8.png"
+            src="public/fig9.png"
             alt="An image showing initial design inspirations for the overall form of the EmoBank device."
           />
           <figcaption>
-            <span class="fig-label">Fig. 8.</span> Initial design inspirations
+            <span class="fig-label">Fig. 9.</span> Initial design inspirations
             for the overall form of the EmoBank device.
           </figcaption>
         </figure>
