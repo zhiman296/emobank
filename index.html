@@ -1,11 +1,939 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmoBank — Speculative Emotional Economy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --color-bg: #faf9f7;
+        --color-text: #2c2c2c;
+        --color-text-secondary: #6b6b6b;
+        --color-accent: #8b7355;
+        --color-border: #e8e4df;
+        --color-surface: #f3f1ed;
+        --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+        --font-sans: 'Inter', -apple-system, sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+        --max-width: 720px;
+        --space-unit: 1rem;
+      }
+
+      html {
+        font-size: 18px;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        line-height: 1.75;
+        color: var(--color-text);
+        background-color: var(--color-bg);
+      }
+
+      /* ── Hero ── */
+      .hero {
+        /* min-height: 100vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: calc(var(--space-unit) * 4) calc(var(--space-unit) * 2);
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .hero-eyebrow {
+        font-family: var(--font-sans);
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-text-secondary);
+        margin-bottom: calc(var(--space-unit) * 2);
+      }
+
+      .hero-title {
+        font-family: var(--font-serif);
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        font-weight: 300;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--color-text);
+        margin-bottom: calc(var(--space-unit) * 1.5);
+      }
+
+      .hero-title em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .hero-subtitle {
+        font-family: var(--font-serif);
+        font-size: 1.35rem;
+        font-weight: 300;
+        font-style: italic;
+        color: var(--color-text-secondary);
+        max-width: 540px;
+        line-height: 1.6;
+        margin-bottom: calc(var(--space-unit) * 3);
+      }
+
+      .hero-meta {
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: var(--color-text-secondary);
+        letter-spacing: 0.05em;
+        display: flex;
+        gap: calc(var(--space-unit) * 2);
+        flex-wrap: wrap;
+      }
+
+      .hero-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+
+      .hero-meta span::before {
+        content: '';
+        width: 16px;
+        height: 1px;
+        background: var(--color-border);
+      }
+
+      /* ── Article ── */
+      .article {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 6);
+      }
+
+      /* ── Section spacing ── */
+      .section {
+        margin-bottom: calc(var(--space-unit) * 5);
+      }
+
+      .section-divider {
+        width: 40px;
+        height: 1px;
+        background: var(--color-border);
+        margin: calc(var(--space-unit) * 4) 0;
+      }
+
+      /* ── Typography ── */
+      h2 {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        margin-bottom: calc(var(--space-unit) * 1.5);
+        color: var(--color-text);
+      }
+
+      h3 {
+        font-family: var(--font-serif);
+        font-size: 1.35rem;
+        font-weight: 500;
+        line-height: 1.3;
+        margin-top: calc(var(--space-unit) * 2.5);
+        margin-bottom: calc(var(--space-unit) * 0.75);
+        color: var(--color-text);
+      }
+
+      p {
+        margin-bottom: calc(var(--space-unit) * 1.25);
+        font-size: 1rem;
+        hanging-punctuation: first last;
+      }
+
+      .lead {
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 1.7;
+        color: var(--color-text);
+      }
+
+      strong {
+        font-weight: 600;
+      }
+
+      /* ── Figures ── */
+      .figure {
+        margin: calc(var(--space-unit) * 3) 0;
+      }
+
+      .figure img {
+        width: 100%;
+        display: block;
+        border-radius: 4px;
+      }
+
+      .figure figcaption {
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: var(--color-text-secondary);
+        margin-top: calc(var(--space-unit) * 0.75);
+        line-height: 1.6;
+        letter-spacing: 0.01em;
+      }
+
+      .figure figcaption .fig-label {
+        font-weight: 500;
+        color: var(--color-text);
+      }
+
+      /* ── Emotion Grid ── */
+      .emotion-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1px;
+        background: var(--color-border);
+        border: 1px solid var(--color-border);
+        border-radius: 4px;
+        margin: calc(var(--space-unit) * 2) 0;
+        overflow: hidden;
+      }
+
+      .emotion-item {
+        background: var(--color-bg);
+        padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 1.25);
+        display: flex;
+        align-items: baseline;
+        gap: calc(var(--space-unit) * 1);
+      }
+
+      .emotion-item .emotion-number {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        font-weight: 300;
+        color: var(--color-text-secondary);
+        flex-shrink: 0;
+        width: 1.5em;
+      }
+
+      .emotion-item .emotion-label {
+        font-family: var(--font-serif);
+        font-size: 1.05rem;
+        font-weight: 500;
+      }
+
+      .emotion-item .emotion-desc {
+        font-family: var(--font-sans);
+        font-size: 0.72rem;
+        color: var(--color-text-secondary);
+        margin-left: auto;
+        font-weight: 300;
+      }
+
+      /* ── Pipeline / Architecture ── */
+      .pipeline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        margin: calc(var(--space-unit) * 2.5) 0;
+        flex-wrap: wrap;
+      }
+
+      .pipeline-stage {
+        font-family: var(--font-sans);
+        font-size: 0.72rem;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        padding: calc(var(--space-unit) * 0.6) calc(var(--space-unit) * 1);
+        border: 1px solid var(--color-border);
+        border-radius: 3px;
+        background: var(--color-bg);
+        text-align: center;
+      }
+
+      .pipeline-arrow {
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        color: var(--color-text-secondary);
+        padding: 0 0.6em;
+      }
+
+      /* ── Interaction stages ── */
+      .stages {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: calc(var(--space-unit) * 0.75);
+        margin: calc(var(--space-unit) * 2) 0;
+      }
+
+      .stage {
+        text-align: center;
+        padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 0.5);
+        background: var(--color-surface);
+        border-radius: 4px;
+      }
+
+      .stage-number {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--color-text-secondary);
+        font-weight: 300;
+        margin-bottom: 0.4em;
+      }
+
+      .stage-text {
+        font-family: var(--font-serif);
+        font-size: 0.85rem;
+        font-style: italic;
+        font-weight: 400;
+        color: var(--color-text);
+        line-height: 1.4;
+      }
+
+      /* ── Video ── */
+      .demo-container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 calc(var(--space-unit) * 2) calc(var(--space-unit) * 4);
+      }
+
+      .demo-video video {
+        width: 100%;
+        display: block;
+        border-radius: 4px;
+      }
+
+      .demo-video figcaption {
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: var(--color-text-secondary);
+        margin-top: calc(var(--space-unit) * 0.75);
+        line-height: 1.6;
+        letter-spacing: 0.01em;
+      }
+
+      /* ── Pullquote ── */
+      .pullquote {
+        border-left: 2px solid var(--color-accent);
+        padding-left: calc(var(--space-unit) * 1.5);
+        margin: calc(var(--space-unit) * 2.5) 0;
+      }
+
+      .pullquote p {
+        font-size: 1.25rem;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.65;
+        color: var(--color-text);
+        margin-bottom: 0;
+      }
+
+      /* ── Footer ── */
+      .footer {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2)
+          calc(var(--space-unit) * 4);
+        border-top: 1px solid var(--color-border);
+      }
+
+      .footer p {
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 640px) {
+        html {
+          font-size: 16px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: calc(var(--space-unit) * 6);
+          padding-bottom: calc(var(--space-unit) * 4);
+        }
+
+        .stages {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .pipeline {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .pipeline-arrow {
+          transform: rotate(90deg);
+          padding: 0.3em 0;
+        }
+
+        .emotion-item {
+          flex-wrap: wrap;
+        }
+
+        .emotion-item .emotion-desc {
+          margin-left: 2.5em;
+          width: 100%;
+        }
+      }
+
+      /* ── Fade-in animation ── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero -->
+    <header class="hero">
+      <p class="hero-eyebrow">
+        ATLS 5410 Creative Technologies &middot; Spring 2026
+      </p>
+      <h1 class="hero-title">
+        EmoBank:<br /><em>A Speculative<br />Emotional Economy</em>
+      </h1>
+      <p class="hero-subtitle">
+        Reimagining emotional expression as a form of value &mdash; an
+        interactive installation that translates spoken feelings into physical
+        tokens.
+      </p>
+      <div class="hero-meta">
+        <span>Zhiman Bai</span>
+        <span>University of Colorado Boulder</span>
+      </div>
+    </header>
+
+    <!-- Demo Video -->
+    <div class="demo-container">
+      <figure class="demo-video fade-in">
+        <video controls preload="metadata">
+          <source src="public/demo.mp4" type="video/mp4" />
+        </video>
+        <figcaption>
+          <span class="fig-label">Demo.</span> EmoBank in use — a full
+          interaction cycle from speech input to token output.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Article body -->
+    <article class="article">
+      <!-- Project Statement -->
+      <section class="section fade-in">
+        <h2>Project Statement</h2>
+        <p class="lead">
+          EmoBank is a speculative interactive installation that reimagines
+          emotional expression as a form of value within an emotional economy.
+        </p>
+
+        <figure class="figure">
+          <img
+            src="public/fig1.png"
+            alt="The EmoBank device — a frosted acrylic enclosure on a white table with a handset and token dispenser"
+          />
+          <figcaption>
+            <span class="fig-label">Fig. 1.</span> The EmoBank interactive
+            device.
+          </figcaption>
+        </figure>
+
+        <p>
+          In productivity-driven cultures, emotional expression is often
+          constrained by norms that prioritize efficiency and social harmony,
+          resulting in unequal access to safe spaces for articulating
+          vulnerability and leaving many individuals' emotional experiences
+          unrecognized or suppressed. Rather than treating emotion as an
+          internal state to be discovered, this project shifts attention toward
+          the act of expression itself, emphasizing the effort and vulnerability
+          embedded in speaking and emotional articulation.
+        </p>
+        <p>
+          The device combines real-time speech recognition, AI-based sentiment
+          analysis, and a mechanical dispensing system to translate spoken
+          expression into physical tokens, materializing expression as a
+          tangible outcome. It creates a reflective space in which users can
+          engage with their own emotional articulation without immediate social
+          consequence or evaluative feedback. By introducing the notion of a
+          speculative emotional economy, EmoBank frames emotional expression
+          through the lens of value and exchange. This project operates as a
+          critical and experiential artifact that exposes the limitations of
+          existing approaches to emotion in computational systems, and it
+          invites reflection on how future social and technological
+          infrastructures might acknowledge emotional expression as an effortful
+          and situated human act.
+        </p>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Background -->
+      <section class="section fade-in">
+        <h2>Background &amp; Related Work</h2>
+        <p>
+          In the productivity culture, individuals are subjected to relentless
+          pressure to regulate their emotions in ways that prioritize social
+          harmony and operational efficiency (Smoliak et al., 2025). This
+          environment creates a structural injustice where emotional norms are
+          embedded in unquestioned habits and institutional rules, often
+          treating vulnerability as a liability rather than a human necessity.
+          This results in negative emotion inequality, a state where already
+          vulnerable populations face a disproportionate risk of harm because
+          they are denied the safe “hermeneutical opportunity” to comprehend and
+          express their inner experiences without social penalty (Puddifoot,
+          2025). The capacity to express emotional distress safely is unevenly
+          distributed (Pismenny et al., 2024). Pervasive social stereotypes
+          frequently characterize affective states like anxiety as a sign of
+          personal weakness, leading individuals to engage in self-stereotyping.
+          This internalizing of stigma creates a significant barrier to
+          help-seeking; individuals may withhold their “risky testimony” or
+          unexpressed emotional labor to avoid confirming negative social
+          expectations, effectively trapping them in a cycle of neglected affect
+          (Puddifoot, 2025). Although spaces such as therapy or close
+          interpersonal relationships may provide avenues for emotional release,
+          these are not universally available or free from social consequences.
+        </p>
+
+        <p>
+          Digital interventions offer a unique opportunity to divert prevailing
+          social barriers. Recent research indicates that AI-based systems can
+          facilitate emotional regulation by increasing accessibility and
+          reducing the stigma associated with seeking help (Mondal et al.,
+          2025). Because AI lacks social prejudices and the “moralizing”
+          tendencies often present in human observers, it can create an
+          emotionally safe space for disclosure where individuals feel more
+          comfortable articulating subjective, covert, or even stigmatized
+          experiences (Neuhaus et al., 2025; Roshanaei et al., 2026). By
+          demonstrating an open and non-judgmental attitude, these agents reduce
+          anxiety about social evaluation, allowing users to express feelings,
+          such as embarrassment or intense vulnerability, without the risk of
+          rejection or immediate social repercussions. This perceived safety and
+          lack of conversational dominance can lead to deeper affective
+          self-disclosure, encouraging individuals to own their experiences and
+          provide longer, more emotionally rich narratives (Jiang et al., 2026).
+        </p>
+        <p>
+          Despite the affective turn in recent technological research, existing
+          approaches tend to generalize emotion analysis as a mere
+          classification task, focusing on the detection, identification, and
+          quantification of specific internal states (García-Hernández et al.,
+          2024). While these systems aim to make human affect legible to
+          machines, they often treat emotions as “surface-level information” to
+          be processed mathematically, thereby overlooking the human-specific
+          factors, vulnerability, and contextual complexity inherent in the act
+          of expression (Li et al., 2024). This reflects a broader limitation in
+          current technological and social infrastructures, the absence of
+          frameworks that treat emotional expression not as data to be measured
+          or behavior to be regulated for productivity, but as a form of
+          emotional labor that carries intrinsic value. Systems must begin to
+          acknowledge the effort of expression itself as a valuable exchange.
+        </p>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Conceptual Framework -->
+      <section class="section fade-in">
+        <h2>Conceptual Framework: Toward a Speculative Emotional Economy</h2>
+        <p>
+          In conventional economic terms, currency is defined through properties
+          such as value, exchange, accumulation, and scarcity. These properties
+          provide a critical lens through which emotional expression can be
+          reconsidered as an effortful and socially mediated act. This project
+          reframes emotional expression as a form of value, shifting attention
+          from internal emotional states to the act of expression itself. Rather
+          than proposing a literal economic system, it introduces a speculative
+          mapping that reveals how emotional expression already operates within
+          implicit structures of value.
+        </p>
+        <p>
+          Within this framework, value is not assigned to specific emotional
+          categories, but to the effort involved in expressing them. Speaking,
+          hesitating, and articulating feelings require vulnerability, risk, and
+          social exposure. In this sense, emotional expression can be understood
+          as a form of expenditure.
+        </p>
+
+        <div class="pullquote">
+          <p>
+            Tokens do not evaluate the accuracy, authenticity, or quality of
+            emotion &mdash; they function as symbolic units of recognition that
+            make visible the otherwise intangible labor of expression.
+          </p>
+        </div>
+
+        <p>
+          By materializing expression in this way, the system constructs a
+          speculative emotional economy in which expression is acknowledged
+          through tokenization, rather than validated through interpretation or
+          reciprocal response from others. As a speculative and critical
+          artifact, it creates a space for expression without consequence,
+          allowing users to vent without the burden of reciprocity.
+        </p>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- System & Experience Design -->
+      <section class="section fade-in">
+        <h2>EmoBank: System &amp; Experience Design</h2>
+        <p>
+          EmoBank is designed as a semi-enclosed device that balances
+          accessibility with a sense of privacy, featuring partial coverings on
+          both sides of the structure (Figure 2, left). The overall form
+          resembles a telephone booth, incorporating a handset that users can
+          pick up to speak into the system, as shown in Figure 2 (right). This
+          familiar interaction evokes the experience of calling a friend to
+          share one’s thoughts or daily experiences, creating a relatable and
+          emotionally accessible interaction space.
+        </p>
+        <p>
+          The structure is constructed from frosted acrylic, allowing the
+          presence of a user inside to remain visible while obscuring detailed
+          actions. This semi-transparency helps maintain a sense of safety and
+          privacy, encouraging users to express themselves without feeling fully
+          exposed. At the center of the surface, a small screen provides minimal
+          guidance and navigational cues to support user interaction. In the
+          lower part of the device, a narrow slot serves as the output point
+          where tokens are dispensed.
+        </p>
+
+        <figure class="figure">
+          <img
+            src="public/fig2.jpg"
+            alt="Two views: a user's face covered by the side panel while holding the handset (left); a user engaging with the glowing device (right)"
+          />
+          <figcaption>
+            <span class="fig-label">Fig. 2.</span> The user's face is covered by
+            the side panels of the EmoBank device while speaking (left); a user
+            experiencing the EmoBank device (right).
+          </figcaption>
+        </figure>
+
+        <h3>System Overview</h3>
+        <p>
+          The pipeline of this project translates spoken expression into
+          tangible artifacts. Users are invited to engage with the system by
+          speaking through a microphone interface; their speech is captured and
+          processed in real time. This process culminates in the release of a
+          token from one of several mechanical channels, each corresponding to a
+          category of detected emotional expression. By structuring the
+          interaction in this way, EmoBank establishes a closed loop between
+          input and output: expression enters the system and is returned as a
+          tangible artifact.
+        </p>
+
+        <h3>Interaction Flow</h3>
+        <p>
+          Upon entering the installation, users encounter a handset integrating
+          a microphone as the primary point of engagement. There are no strict
+          instructions regarding what to say or how to say it, allowing
+          individuals to approach the system on their own terms. A small screen
+          provides minimal guidance through four stages:
+        </p>
+
+        <div class="stages">
+          <div class="stage">
+            <div class="stage-number">01</div>
+            <div class="stage-text">"Hello, welcome!"</div>
+          </div>
+          <div class="stage">
+            <div class="stage-number">02</div>
+            <div class="stage-text">"Listening"</div>
+          </div>
+          <div class="stage">
+            <div class="stage-number">03</div>
+            <div class="stage-text">"Processing"</div>
+          </div>
+          <div class="stage">
+            <div class="stage-number">04</div>
+            <div class="stage-text">"Your emotion is&hellip;"</div>
+          </div>
+        </div>
+
+        <p>
+          The final stage is accompanied by the physical release of a token from
+          the lower part of the device, marking the completion of an interaction
+          cycle. The portability of the token creates opportunities for users to
+          share their experience with others beyond the installation.
+        </p>
+      </section>
+
+      <h3>Token Design</h3>
+      <h4>Emotion Mapping Strategy</h4>
+      <p>
+        The system's sentiment analysis module detects up to 28 distinct
+        emotional categories, grouped into seven broader clusters:
+      </p>
+
+      <div class="emotion-grid">
+        <div class="emotion-item">
+          <span class="emotion-number">01</span>
+          <span class="emotion-label">Sadness &amp; Regret</span>
+          <span class="emotion-desc"
+            >sadness, grief, remorse, disappointment</span
+          >
+        </div>
+        <div class="emotion-item">
+          <span class="emotion-number">02</span>
+          <span class="emotion-label">Joy &amp; Achievement</span>
+          <span class="emotion-desc">joy, excitement, amusement, pride</span>
+        </div>
+        <div class="emotion-item">
+          <span class="emotion-number">03</span>
+          <span class="emotion-label">Stress &amp; Uncertainty</span>
+          <span class="emotion-desc"
+            >fear, nervousness, embarrassment, confusion</span
+          >
+        </div>
+        <div class="emotion-item">
+          <span class="emotion-number">04</span>
+          <span class="emotion-label">Positive Outlook</span>
+          <span class="emotion-desc"
+            >gratitude, approval, relief, optimism</span
+          >
+        </div>
+        <div class="emotion-item">
+          <span class="emotion-number">05</span>
+          <span class="emotion-label">Thinking &amp; Awareness</span>
+          <span class="emotion-desc"
+            >surprise, realization, curiosity, neutral</span
+          >
+        </div>
+        <div class="emotion-item">
+          <span class="emotion-number">06</span>
+          <span class="emotion-label">Love &amp; Attraction</span>
+          <span class="emotion-desc">love, desire, caring, admiration</span>
+        </div>
+        <div class="emotion-item">
+          <span class="emotion-number">07</span>
+          <span class="emotion-label">Anger &amp; Dislike</span>
+          <span class="emotion-desc"
+            >anger, annoyance, disapproval, disgust</span
+          >
+        </div>
+      </div>
+      <figure class="figure">
+        <img
+          src="public/fig3.png"
+          alt="Close-up of an iridescent acrylic token being held (left); two tokens emerging from the narrow dispenser slot (right)"
+        />
+        <figcaption>
+          <span class="fig-label">Fig. 3.</span> A token representing the "Joy
+          &amp; Achievement" group of emotions (left); tokens dispensed through
+          the output slot (right).
+        </figcaption>
+      </figure>
+
+      <h4>Material Representation</h4>
+      <p>
+        The token is designed in the form and scale of a coin, directly
+        referencing the project's conceptual framing of emotion as currency.
+        This physical form reinforces the idea of emotional expression as
+        something that can be exchanged, collected, or carried. Each token is
+        fabricated from iridescent acrylic, producing shifting colors depending
+        on the viewing angle &mdash; a material quality that reflects the
+        inherent complexity and variability of emotional experience, resisting a
+        single fixed representation. Several token designs were explored before
+        arriving at the final version, as shown in Fig. 4.
+      </p>
+      <figure class="figure">
+        <img
+          src="public/fig4.jpg"
+          alt="All seven token variants arranged on a wooden surface in black and white"
+        />
+        <figcaption>
+          <span class="fig-label">Fig. 4.</span> The full set of token variants,
+          each corresponding to one of the seven emotional clusters.
+        </figcaption>
+      </figure>
+
+      <div class="section-divider"></div>
+
+      <!-- Technical Implementation -->
+      <section class="section fade-in">
+        <h2>Technical Implementation</h2>
+
+        <h3>System Architecture</h3>
+        <p>
+          EmoBank is structured as a sequential processing pipeline that
+          connects audio input to physical output, consisting of four primary
+          stages: (1) audio capture, (2) speech-to-text processing, (3)
+          LLM-based sentiment analysis, and (4) actuation.
+        </p>
+
+        <p>
+          Audio input is collected through a USB microphone and transmitted to a
+          local computing unit for real-time processing. The audio signal is
+          first converted into text using an offline automatic speech
+          recognition model (Vosk). This design reduces latency and ensures
+          stable performance in exhibition environments. The resulting
+          transcription is then processed by a large language model (LLM)-based
+          sentiment analysis module. It is used to infer broader affective
+          tendencies and map them into a simplified set of predefined emotional
+          categories. Based on this mapping, the system determines a
+          corresponding output channel, which triggers a mechanical dispensing
+          mechanism controlled by a microcontroller. This completes the full
+          pipeline from spoken expression to physical artifact generation.
+        </p>
+
+        <h3>Hardware System</h3>
+        <p>
+          The hardware system is built around an Arduino microcontroller, which
+          coordinates sensing, processing signals, and actuation. The system
+          integrates the following components: A USB microphone serves as the
+          primary input device for capturing spoken audio. A liquid crystal
+          display (LCD) screen is positioned at eye level to provide real-time
+          system feedback. For physical output, the system employs seven servo
+          motors, each connected to a dedicated token channel, as shown in
+          Fig.5. Each servo controls a gate mechanism that releases a single
+          physical token when activated. This modular configuration allows
+          different emotion categories to correspond to separate physical output
+          streams.
+        </p>
+
+        <figure class="figure">
+          <img
+            src="public/fig5.jpg"
+            alt="Seven servo-motor and 3D-printed tube assemblies forming the mechanical token dispensing channels"
+          />
+          <figcaption>
+            <span class="fig-label">Fig. 5.</span> Mechanical dispensing system
+            using servo motors on the 3D-printed token push-out tubes.
+          </figcaption>
+        </figure>
+
+        <p>
+          To improve interaction robustness, an ultrasonic sensor is embedded
+          under the handset, as shown in Fig 6. This sensor detects proximity
+          and movement of the handset, allowing the system to infer when a user
+          begins or ends an interaction. It ensures that speech input is only
+          processed during active engagement, reducing unintended activations.
+          The signal from the ultrasonic sensor is also used to update the LCD
+          screen, reflecting system states such as “Listening” and “Processing”
+          in real time.
+        </p>
+
+        <figure class="figure">
+          <img
+            src="public/fig6.png"
+            alt="3D-printed housing parts for the ultrasonic sensor (left); assembled sensor module mounted on the wall (right)"
+          />
+          <figcaption>
+            <span class="fig-label">Fig. 6.</span> An ultrasonic sensor embedded
+            in a 3D-printed holder, placed beneath the handset on the device.
+          </figcaption>
+        </figure>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Critical Reflections -->
+      <section class="section fade-in">
+        <h2>Critical Reflections &amp; Future Steps</h2>
+        <p>
+          While EmoBank proposes a speculative framework for rethinking
+          emotional expression as value, it is important to acknowledge the
+          limitations in both its conceptual and technical design. The use of
+          AI-based sentiment analysis introduces interpretive bias. Large
+          language models and emotion recognition systems are trained on
+          datasets that may not fully capture cultural, linguistic, or
+          individual variations in emotional expression. As a result, the
+          system's interpretation of speech may not consistently align with the
+          user's intended emotional meaning.
+        </p>
+
+        <p>
+          During the EXPO on April 24th, 2026, it was great to see many visitors
+          come to experience the device, receive tokens, and take them home
+          after the event. It was exciting to observe how much people liked the
+          design and the tokens (many seemed to enjoy having something tangible
+          to carry with them, as shown in Fig.7.) Several visitors also provided
+          feedback on the overall design of the device. In particular, they
+          expressed a desire for a more “safe” and enclosed space, as well as
+          the addition of lighting on the top of the device. For future
+          iterations, I plan to redesign and enlarge the side panels to create a
+          more private space for users. This aligns with my initial design
+          inspiration, as shown in Fig. 8, and would help enhance both privacy
+          and the overall immersive experience.
+        </p>
+
+        <figure class="figure">
+          <img
+            src="public/fig7.png"
+            alt="An image showing visitors interacting with the EmoBank device during an expo event at the University of Colorado Boulder."
+          />
+          <figcaption>
+            <span class="fig-label">Fig. 7.</span> Visitors interacting with the
+            EmoBank device during an expo event at the University of Colorado
+            Boulder.
+          </figcaption>
+        </figure>
+
+        <figure class="figure">
+          <img
+            src="public/fig8.png"
+            alt="An image showing initial design inspirations for the overall form of the EmoBank device."
+          />
+          <figcaption>
+            <span class="fig-label">Fig. 8.</span> Initial design inspirations
+            for the overall form of the EmoBank device.
+          </figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        EmoBank &middot; Zhiman Bai &middot; ATLS 5410 Creative Technologies
+        &middot; Spring 2026<br />University of Colorado Boulder
+      </p>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible')
+            }
+          })
+        },
+        { threshold: 0.1 },
+      )
+
+      document
+        .querySelectorAll('.fade-in')
+        .forEach((el) => observer.observe(el))
+    </script>
+  </body>
 </html>
